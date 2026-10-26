@@ -1,251 +1,327 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Baihaqi | Software Engineer & Data Scientist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmad Baihaqi | Software Engineering & Data Analytics</title>
+  <meta name="description" content="Portfolio of Ahmad Baihaqi, Software Engineering student at UKM. Projects in data analytics, computer vision, and web development.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent: #38bdf8; --accent-2: #818cf8; }
+    body { font-family: "Inter", system-ui, sans-serif; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 0 80px;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.18), transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(129, 140, 248, 0.18), transparent 45%);
+    }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    .avatar {
+      position: relative; width: 260px; height: 260px;
+      border-radius: 24px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: #1e293b; border: 1px solid #334155;
+      margin: 0 auto;
+    }
+    .avatar span { font-size: 4rem; font-weight: 800; color: var(--accent); }
+    .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-        /* Hero Section */
-        header {
-            padding: 100px 0 60px;
-            border-bottom: 1px solid #334155;
-        }
-        
-        .hero-name {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .section { padding: 80px 0; }
+    .section-title { font-weight: 800; letter-spacing: -0.02em; }
+    .eyebrow { color: var(--accent); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
-        .hero-title {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+    .hover-card { transition: transform 0.25s, box-shadow 0.25s; }
+    .hover-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35) !important; }
 
-        .social-links a {
-            color: var(--text-main);
-            font-size: 1.5rem;
-            margin-right: 15px;
-            transition: color 0.3s ease;
-        }
+    .skill-tag { display: inline-block; margin: 0 6px 8px 0; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; background: rgba(56, 189, 248, 0.1); color: var(--accent); }
 
-        .social-links a:hover { color: var(--accent); }
+    .timeline-item { border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 28px; position: relative; }
+    .timeline-item::before {
+      content: ""; position: absolute; left: -7px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%; background: var(--accent-2);
+    }
 
-        /* Sections */
-        section { padding: 60px 0; border-bottom: 1px solid #334155; }
-        h2 { font-size: 2rem; margin-bottom: 30px; color: var(--text-main); }
+    .nav-link { font-weight: 500; }
+    footer { border-top: 1px solid #334155; }
 
-        /* Grid Layouts */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    .fade-up { animation: fadeUp 0.8s ease both; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
 
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
-        
-        .badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            color: var(--bg-color);
-            background-color: var(--accent);
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: opacity 0.3s;
-        }
-
-        .btn:hover { opacity: 0.8; }
-
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-        }
-    </style>
+    @media (prefers-reduced-motion: reduce) { .fade-up { animation: none; } html { scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1 class="hero-name">Ahmad Baihaqi</h1>
-            <p class="hero-title">Software Engineering Undergrad @ UKM | Data Science & AI Specialist</p>
-            <p style="max-width: 600px; color: var(--text-muted); margin-bottom: 25px;">
-                Passionate about turning complex data into actionable insights and building robust software. 
-                Experienced in machine learning, exploratory data analysis, and web development.
-            </p>
-            <div class="social-links">
-                <a href="https://github.com/shadowdragon-arch" target="_blank"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/ahmad-baihaqi-a14533310" target="_blank"><i class="bi bi-linkedin"></i></a>
-                <a href="mailto:ah.baihaqi@gmail.com"><i class="bi bi-envelope-fill"></i></a>
-            </div>
-        </div>
-    </header>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#top">AB<span style="color: var(--accent)">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <section id="education">
-        <div class="container grid-2">
-            <div>
-                <h2>Education</h2>
-                <div class="card" style="margin-bottom: 20px;">
-                    <h3>Universities Kebangsaan Malaysia (UKM)</h3>
-                    <p>Bachelor of Software Engineering with Honours<br><em>Current</em></p>
-                    <p>Excelling in Data Structures, Statistical Analysis (A), and Software Engineering Concepts.</p>
-                </div>
-                <div class="card">
-                    <h3>Kolej Matrikulasi Kelantan</h3>
-                    <p>Physical Science<br><em>CGPA: 3.96</em></p>
-                </div>
-            </div>
-            <div>
-                <h2>Technical Core</h2>
-                <div class="card">
-                    <h3>Languages & Tools</h3>
-                    <div style="margin-top: 15px;">
-                        <span class="badge">Python</span>
-                        <span class="badge">R</span>
-                        <span class="badge">SQL</span>
-                        <span class="badge">Java</span>
-                        <span class="badge">C++</span>
-                        <span class="badge">HTML/CSS/PHP</span>
-                        <span class="badge">Git/GitHub</span>
-                        <span class="badge">Tableau</span>
-                        <span class="badge">Jupyter</span>
-                    </div>
-                    <h3 style="margin-top: 20px;">Data Science & AI</h3>
-                    <div style="margin-top: 15px;">
-                        <span class="badge">Machine Learning</span>
-                        <span class="badge">Pandas / NumPy</span>
-                        <span class="badge">Predictive Analytics</span>
-                        <span class="badge">Data Visualization</span>
-                        <span class="badge">Generative AI</span>
-                    </div>
-                </div>
-            </div>
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 fade-up">
+          <span class="eyebrow">Software Engineering Student · UKM</span>
+          <h1 class="mt-3 mb-3">Hi, I'm <span class="gradient-text">Ahmad Baihaqi</span>.</h1>
+          <p class="fs-5 text-secondary mb-2">Data Analytics · Python · Machine Learning · Web Development</p>
+          <p class="text-secondary mb-4" style="max-width: 560px;">
+            I turn raw data and messy problems into clear, working software. I focus on analytics, computer vision, and building tools people can actually use.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#projects" class="btn btn-info fw-semibold px-4">View Projects</a>
+            <a href="Ahmad_Baihaqi_CV.pdf" class="btn btn-outline-light px-4">Download CV</a>
+            <a href="https://github.com/shadowdragon-arch" class="btn btn-outline-secondary px-4" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
+          </div>
         </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="grid-3">
-                <!-- Project 1 -->
-                <div class="card">
-                    <h3>Predictive Maintenance Model</h3>
-                    <p>Developed a machine learning pipeline using Random Forest to predict equipment failures, focusing on optimizing delivery vehicle uptime.</p>
-                    <span class="badge">Python</span>
-                    <span class="badge">Scikit-learn</span>
-                    <br><br>
-                    <a href="https://github.com/shadowdragon-arch" class="btn" target="_blank">View on GitHub</a>
-                </div>
-                <!-- Project 2 -->
-                <div class="card">
-                    <h3>Interactive Visual Analytics</h3>
-                    <p>Engineered comprehensive dashboards using Tableau and Folium to track spatial data and identify optimal geographic locations.</p>
-                    <span class="badge">Tableau</span>
-                    <span class="badge">Folium</span>
-                    <br><br>
-                    <a href="https://github.com/shadowdragon-arch" class="btn" target="_blank">View Dashboard</a>
-                </div>
-                <!-- Project 3 -->
-                <div class="card">
-                    <h3>Automated Data Pipeline</h3>
-                    <p>Built a structured data pipeline to clean, process, and analyze unstructured web-scraped datasets utilizing pandas and SQL.</p>
-                    <span class="badge">SQL</span>
-                    <span class="badge">Pandas</span>
-                    <br><br>
-                    <a href="https://github.com/shadowdragon-arch" class="btn" target="_blank">View Code</a>
-                </div>
-            </div>
+        <div class="col-lg-5 fade-up delay-1">
+          <div class="avatar">
+            <span>AB</span>
+            <!-- Put your photo as profile.jpg in the same folder -->
+            <img src="profile.jpg" alt="Ahmad Baihaqi" onerror="this.remove()">
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <section id="certifications">
-        <div class="container">
-            <h2>Professional Certifications</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>IBM Data Science Professional</h3>
-                    <p>Mastered tools like Jupyter, Python, SQL, and Machine Learning libraries through 10 intensive courses.</p>
-                </div>
-                <div class="card">
-                    <h3>Google Advanced Data Analytics</h3>
-                    <p>Developed expertise in advanced statistical analysis, regression modeling, and machine learning models.</p>
-                </div>
-                <div class="card">
-                    <h3>Google AI Essentials</h3>
-                    <p>Certified in maximizing productivity with AI tools, prompt engineering, and responsible AI usage.</p>
-                </div>
-                <div class="card">
-                    <h3>Google IT Automation with Python</h3>
-                    <p>Focused on configuration management, cloud automation, and troubleshooting techniques.</p>
-                </div>
-                <div class="card">
-                    <h3>Cisco Networking Academy</h3>
-                    <p>Certifications in Cyber Threat Management, Cybersecurity, and Introduction to Data Science.</p>
-                </div>
-                <div class="card">
-                    <h3>Gemini Certified Student</h3>
-                    <p>Demonstrated competencies in leveraging Google AI technologies in higher education environments.</p>
-                </div>
-            </div>
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-7">
+          <span class="eyebrow">About me</span>
+          <h2 class="section-title mt-2 mb-4">Building with data and code</h2>
+          <p class="text-secondary">I'm a Software Engineering undergraduate at Universiti Kebangsaan Malaysia, with a background in data science, predictive analytics, and full-stack web development.</p>
+          <p class="text-secondary">I've built a number plate recognition prototype with OpenCV and EasyOCR, and analysed 5.6 million bike-share records to recommend a membership strategy.</p>
+          <p class="text-secondary">Outside the classroom, I'm on the Media exco at the Student Representative Council (SRM) UKM and have helped organise sustainability campaigns and workshops.</p>
         </div>
-    </section>
+        <div class="col-lg-5">
+          <div class="card bg-body-tertiary border p-4">
+            <h5 class="mb-3">Quick info</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="d-flex justify-content-between py-2 border-bottom"><span class="text-secondary">Location</span><span>Selangor, Malaysia</span></li>
+              <li class="d-flex justify-content-between py-2 border-bottom"><span class="text-secondary">Study</span><span>BSc Software Engineering (Hons)</span></li>
+              <li class="d-flex justify-content-between py-2 border-bottom"><span class="text-secondary">University</span><span>UKM, 2025 – 2029</span></li>
+              <li class="d-flex justify-content-between py-2 border-bottom"><span class="text-secondary">CGPA</span><span>3.80 / 4.00</span></li>
+              <li class="d-flex justify-content-between py-2"><span class="text-secondary">Email</span><span>a220054@siswa.ukm.edu.my</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.9rem;">
-        <p>&copy; 2026 Ahmad Baihaqi. Handcrafted with precision.</p>
-    </footer>
+  <!-- Skills -->
+  <section class="section bg-body-tertiary" id="skills">
+    <div class="container">
+      <span class="eyebrow">Skills</span>
+      <h2 class="section-title mt-2 mb-5">What I work with</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 border bg-body p-4 hover-card">
+            <h5 class="mb-3">Programming & Web</h5>
+            <span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C/C++</span>
+            <span class="skill-tag">SQL</span><span class="skill-tag">PHP</span><span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">Bootstrap</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border bg-body p-4 hover-card">
+            <h5 class="mb-3">Data & AI</h5>
+            <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">TensorFlow</span><span class="skill-tag">OpenCV</span><span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Predictive Analytics</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border bg-body p-4 hover-card">
+            <h5 class="mb-3">Visualization & Tools</h5>
+            <span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Folium</span>
+            <span class="skill-tag">Git & GitHub</span><span class="skill-tag">VS Code</span><span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">Canva</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <span class="eyebrow">Projects</span>
+      <h2 class="section-title mt-2 mb-5">Featured Projects</h2>
+      <div class="row g-4">
+
+        <!-- Project 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm hover-card border bg-body-tertiary">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-code-slash"></i> Portfolio Website</span>
+              <span class="badge bg-primary">Featured</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Personal Portfolio</h5>
+              <p class="card-text text-secondary">A responsive portfolio built with Bootstrap 5, featuring interactive elements, clean layout structure, and a contact form.</p>
+              <a href="https://shadowdragon-arch.github.io/" class="btn btn-primary" target="_blank" rel="noopener">View Project</a>
+            </div>
+            <div class="card-footer text-secondary">Completed: September 2026</div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm hover-card border bg-body-tertiary">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-bicycle"></i> Cyclistic Bike-Share</span>
+              <span class="badge bg-warning text-dark">In Progress</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Behavioral Analysis</h5>
+              <p class="card-text text-secondary">Analyzed 5.6M ride records using Python (Pandas) and Power BI. Identified a 66% weekend volume spike, proposing a $3M+ revenue model.</p>
+              <a href="https://github.com/shadowdragon-arch/Cyclistic-Bike-Share-Analysis" class="btn btn-primary" target="_blank" rel="noopener">View Project</a>
+            </div>
+            <div class="card-footer text-secondary">Base analysis completed: May 2026</div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm hover-card border bg-body-tertiary">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-bar-chart-fill"></i> The Fatal Habit</span>
+              <span class="badge bg-success">Completed</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Tableau Health Analytics</h5>
+              <p class="card-text text-secondary">An interactive Tableau dashboard visualizing smoking-related mortalities in Malaysia (2000–2023) to highlight trends for public healthcare.</p>
+              <a href="https://public.tableau.com/views/DashboardXanthron/Dashboard2?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="btn btn-primary" target="_blank" rel="noopener">View Project</a>
+            </div>
+            <div class="card-footer text-secondary">Completed: March 2026</div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm hover-card border bg-body-tertiary">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-camera-video"></i> EodiCar</span>
+              <span class="badge bg-info text-dark">Prototype</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">ANPR Parking Prototype</h5>
+              <p class="card-text text-secondary">Number plate recognition prototype for parking, with parked-vehicle location recovery, entry/exit logging, fee calculation, and pathfinding. Built with OpenCV, EasyOCR, TensorFlow, and SQLite.</p>
+              <span class="text-secondary small">Developed at Samsan Tech Sdn. Bhd.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section bg-body-tertiary" id="experience">
+    <div class="container">
+      <span class="eyebrow">Experience & Leadership</span>
+      <h2 class="section-title mt-2 mb-5">Where I've led</h2>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="timeline-item">
+            <small class="text-info fw-semibold">2026 – Present</small>
+            <h5 class="mt-1 mb-1">Media Exco</h5>
+            <p class="text-secondary mb-0">Student Representative Council (SRM) UKM</p>
+          </div>
+          <div class="timeline-item">
+            <small class="text-info fw-semibold">Jul 2026 – Present</small>
+            <h5 class="mt-1 mb-1">Executive Committee Member</h5>
+            <p class="text-secondary mb-1">Sekretariat Rakan Muda UKM</p>
+            <p class="text-secondary">Drafted public announcements, event copy, and promotional media using Canva to boost student engagement.</p>
+          </div>
+          <div class="timeline-item">
+            <small class="text-info fw-semibold">Oct 2025 – Jul 2026</small>
+            <h5 class="mt-1 mb-1">Secretary</h5>
+            <p class="text-secondary mb-1">Biro Kelestarian Kampus Hijau, KPZ UKM</p>
+            <p class="text-secondary">Managed administration and coordinated sustainability initiatives including plogging, Kempen Lestari Za'ba 2.0, and dragon fruit farming.</p>
+          </div>
+          <div class="timeline-item">
+            <small class="text-info fw-semibold">2022 – 2023</small>
+            <h5 class="mt-1 mb-1">President, Robotics and Invention Club</h5>
+            <p class="text-secondary mb-1">SMK XX</p>
+            <p class="text-secondary">Led technology initiatives and designed a mechanical demonstration for the school-level Science Week.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section" id="certifications">
+    <div class="container">
+      <span class="eyebrow">Certifications</span>
+      <h2 class="section-title mt-2 mb-5">Credentials</h2>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>IBM Data Science Professional Certificate</strong><small class="text-secondary">Oct 2026</small></div></div>
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>Google Advanced Data Analytics</strong><small class="text-secondary">Aug 2026</small></div></div>
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>Google AI Professional Certificate</strong><small class="text-secondary">May 2026</small></div></div>
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>Google Data Analytics Professional</strong><small class="text-secondary">Apr 2026</small></div></div>
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>Google IT Automation with Python</strong><small class="text-secondary">Mar 2026</small></div></div>
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>Google AI Essentials</strong><small class="text-secondary">May 2026</small></div></div>
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>Gemini Certified Student</strong><small class="text-secondary">May 2026 · Google for Education</small></div></div>
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>Cisco: Introduction to Data Science</strong><small class="text-secondary">Apr 2026</small></div></div>
+        <div class="col-md-6 col-lg-4"><div class="card h-100 border bg-body-tertiary p-3"><strong>Cisco: Cyber Threat Management</strong><small class="text-secondary">Apr 2026</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section bg-body-tertiary text-center" id="contact">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h2 class="section-title mt-2 mb-3">Let's work together</h2>
+      <p class="text-secondary mb-4 mx-auto" style="max-width: 560px;">Open to internships and junior roles in data analytics and software engineering. Send a message and I'll get back to you.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <a href="mailto:a220054@siswa.ukm.edu.my" class="btn btn-info fw-semibold px-4">Email me</a>
+        <a href="https://linkedin.com/in/ahmad-baihaqi" class="btn btn-outline-light px-4" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/shadowdragon-arch" class="btn btn-outline-light px-4" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
+        <a href="Ahmad_Baihaqi_CV.pdf" class="btn btn-outline-light px-4">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 text-center text-secondary small">
+    <div class="container">© 2026 Ahmad Baihaqi Bin Da'razaki. Built with Bootstrap 5.</div>
+  </footer>
 
 </body>
 </html>
