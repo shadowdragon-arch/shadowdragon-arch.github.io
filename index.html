@@ -1,50 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmad Baihaqi | Software Engineering & Data Analytics</title>
-  <meta name="description" content="Portfolio of Ahmad Baihaqi, Software Engineering student at UKM, with projects in data analytics and web development.">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Baihaqi | Software Engineer & Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 100px 0 60px;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .hero-name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover { color: var(--accent); }
+
+        /* Sections */
+        section { padding: 60px 0; border-bottom: 1px solid #334155; }
+        h2 { font-size: 2rem; margin-bottom: 30px; color: var(--text-main); }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--bg-color);
+            background-color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-  <header class="hero">
-    <h1>Ahmad Baihaqi Bin Da'razaki</h1>
-    <p>Software Engineering student at UKM | Data Analytics | Python</p>
-    <div class="buttons">
-      <a href="Ahmad_Baihaqi_CV.pdf" class="btn">Download CV</a>
-      <a href="https://github.com/shadowdragon-arch" class="btn">GitHub</a>
-      <a href="https://linkedin.com/in/ahmad-baihaqi" class="btn">LinkedIn</a>
-    </div>
-  </header>
+    <header>
+        <div class="container">
+            <h1 class="hero-name">Ahmad Baihaqi</h1>
+            <p class="hero-title">Software Engineering Undergrad @ UKM | Data Science & AI Specialist</p>
+            <p style="max-width: 600px; color: var(--text-muted); margin-bottom: 25px;">
+                Passionate about turning complex data into actionable insights and building robust software. 
+                Experienced in machine learning, exploratory data analysis, and web development.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/shadowdragon-arch" target="_blank"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahmad-baihaqi-a14533310" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="mailto:ah.baihaqi@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+        </div>
+    </header>
 
-  <main>
-    <section>
-      <h2>Projects</h2>
-
-      <article class="card">
-        <h3>Cyclistic Bike-Share Analysis</h3>
-        <p>Analyzed 5.6 million ride records with Python (Pandas) and Power BI. Identified a 66% weekend spike and recommended a Weekend-Only membership strategy.</p>
-        <p class="tools">Python · Pandas · Power BI</p>
-      </article>
-
-      <article class="card">
-        <h3>EodiCar: ANPR Prototype</h3>
-        <p>Number plate recognition prototype with entry/exit logging, fee calculation, and pathfinding for a parking location.</p>
-        <p class="tools">OpenCV · EasyOCR · TensorFlow · SQLite</p>
-      </article>
+    <section id="education">
+        <div class="container grid-2">
+            <div>
+                <h2>Education</h2>
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3>Universities Kebangsaan Malaysia (UKM)</h3>
+                    <p>Bachelor of Software Engineering with Honours<br><em>Current</em></p>
+                    <p>Excelling in Data Structures, Statistical Analysis (A), and Software Engineering Concepts.</p>
+                </div>
+                <div class="card">
+                    <h3>Kolej Matrikulasi Kelantan</h3>
+                    <p>Physical Science<br><em>CGPA: 3.96</em></p>
+                </div>
+            </div>
+            <div>
+                <h2>Technical Core</h2>
+                <div class="card">
+                    <h3>Languages & Tools</h3>
+                    <div style="margin-top: 15px;">
+                        <span class="badge">Python</span>
+                        <span class="badge">R</span>
+                        <span class="badge">SQL</span>
+                        <span class="badge">Java</span>
+                        <span class="badge">C++</span>
+                        <span class="badge">HTML/CSS/PHP</span>
+                        <span class="badge">Git/GitHub</span>
+                        <span class="badge">Tableau</span>
+                        <span class="badge">Jupyter</span>
+                    </div>
+                    <h3 style="margin-top: 20px;">Data Science & AI</h3>
+                    <div style="margin-top: 15px;">
+                        <span class="badge">Machine Learning</span>
+                        <span class="badge">Pandas / NumPy</span>
+                        <span class="badge">Predictive Analytics</span>
+                        <span class="badge">Data Visualization</span>
+                        <span class="badge">Generative AI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:a220054@siswa.ukm.edu.my">a220054@siswa.ukm.edu.my</a></p>
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="grid-3">
+                <!-- Project 1 -->
+                <div class="card">
+                    <h3>Predictive Maintenance Model</h3>
+                    <p>Developed a machine learning pipeline using Random Forest to predict equipment failures, focusing on optimizing delivery vehicle uptime.</p>
+                    <span class="badge">Python</span>
+                    <span class="badge">Scikit-learn</span>
+                    <br><br>
+                    <a href="https://github.com/shadowdragon-arch" class="btn" target="_blank">View on GitHub</a>
+                </div>
+                <!-- Project 2 -->
+                <div class="card">
+                    <h3>Interactive Visual Analytics</h3>
+                    <p>Engineered comprehensive dashboards using Tableau and Folium to track spatial data and identify optimal geographic locations.</p>
+                    <span class="badge">Tableau</span>
+                    <span class="badge">Folium</span>
+                    <br><br>
+                    <a href="https://github.com/shadowdragon-arch" class="btn" target="_blank">View Dashboard</a>
+                </div>
+                <!-- Project 3 -->
+                <div class="card">
+                    <h3>Automated Data Pipeline</h3>
+                    <p>Built a structured data pipeline to clean, process, and analyze unstructured web-scraped datasets utilizing pandas and SQL.</p>
+                    <span class="badge">SQL</span>
+                    <span class="badge">Pandas</span>
+                    <br><br>
+                    <a href="https://github.com/shadowdragon-arch" class="btn" target="_blank">View Code</a>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© 2026 Ahmad Baihaqi</p>
-  </footer>
+    <section id="certifications">
+        <div class="container">
+            <h2>Professional Certifications</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>IBM Data Science Professional</h3>
+                    <p>Mastered tools like Jupyter, Python, SQL, and Machine Learning libraries through 10 intensive courses.</p>
+                </div>
+                <div class="card">
+                    <h3>Google Advanced Data Analytics</h3>
+                    <p>Developed expertise in advanced statistical analysis, regression modeling, and machine learning models.</p>
+                </div>
+                <div class="card">
+                    <h3>Google AI Essentials</h3>
+                    <p>Certified in maximizing productivity with AI tools, prompt engineering, and responsible AI usage.</p>
+                </div>
+                <div class="card">
+                    <h3>Google IT Automation with Python</h3>
+                    <p>Focused on configuration management, cloud automation, and troubleshooting techniques.</p>
+                </div>
+                <div class="card">
+                    <h3>Cisco Networking Academy</h3>
+                    <p>Certifications in Cyber Threat Management, Cybersecurity, and Introduction to Data Science.</p>
+                </div>
+                <div class="card">
+                    <h3>Gemini Certified Student</h3>
+                    <p>Demonstrated competencies in leveraging Google AI technologies in higher education environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.9rem;">
+        <p>&copy; 2026 Ahmad Baihaqi. Handcrafted with precision.</p>
+    </footer>
 
 </body>
 </html>
