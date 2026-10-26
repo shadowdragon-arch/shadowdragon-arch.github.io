@@ -17,6 +17,6 @@ HTML, CSS, JavaScript, hosted on GitHub Pages.
 
 ## Contact
 
-- Email: a220054@siswa.ukm.edu.my
+- Email: ah.baihaqi@gmail.com
 - LinkedIn: [linkedin.com/in/ahmad-baihaqi](https://linkedin.com/in/ahmad-baihaqi)
 - GitHub: [github.com/shadowdragon-arch](https://github.com/shadowdragon-arch)
